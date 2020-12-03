@@ -1,0 +1,16 @@
+#pip install qrcode
+import qrcode
+qr = qrcode.QRCode(
+    version=1,
+    error_correction=qrcode.constants.ERROR_CORRECT_L,
+    box_size=6,
+    border=4,
+)
+def generate (data, img_name="QrCode.png"):
+    img = qrcode.make(data) #generate QRcode
+    img.save(img_name)
+    img = qr.make_image(fill_color="black", back_color="white")
+    return img
+
+url = "https://forms.gle/uDfcRWcDL932uzjF9"
+generate(url)
